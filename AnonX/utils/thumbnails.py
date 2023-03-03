@@ -117,14 +117,14 @@ async def gen_thumb(videoid, user_id):
         background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AnonX/assets/font2.ttf", 45)
+        font = ImageFont.truetype("AnonX/assets/font2.ttf", 60)
         ImageFont.truetype("AnonX/assets/font2.ttf", 70)
         arial = ImageFont.truetype("AnonX/assets/font2.ttf", 30)
-        ImageFont.truetype("AnonX/assets/font.ttf", 30)
+        ImageFont.truetype("AnonX/assets/font.ttf", 50)
         para = textwrap.wrap(title, width=32)
         try:
             draw.text(
-                (475, 25),
+                (500, 25),
                 f"RMGXMUSIC",
                 fill="white",
                 stroke_width=4,
@@ -137,8 +137,8 @@ async def gen_thumb(videoid, user_id):
                     ((1280 - text_w) / 2, 530),
                     f"{para[0]}",
                     fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
+                    stroke_width=4,
+                    stroke_fill="black",
                     font=font,
                 )
             if para[1]:
@@ -147,8 +147,8 @@ async def gen_thumb(videoid, user_id):
                     ((1280 - text_w) / 2, 580),
                     f"{para[1]}",
                     fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
+                    stroke_width=4,
+                    stroke_fill="black",
                     font=font,
                 )
         except:
