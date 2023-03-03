@@ -125,7 +125,7 @@ async def gen_thumb(videoid, user_id):
         try:
             draw.text(
                 (450, 25),
-                f"𝚁𝙼𝙶𝚇𝙼𝚄𝚂𝙸𝙲",
+                f"RMGXMUSIC",
                 fill="white",
                 stroke_width=3,
                 stroke_fill="grey",
