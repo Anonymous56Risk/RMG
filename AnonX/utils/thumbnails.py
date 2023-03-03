@@ -222,7 +222,7 @@ async def gen_qthumb(videoid, user_id):
         x = f.resize((107, 107))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"AnonX/assets/anonx.png")
+        bg = Image.open(f"AnonX/assets/anonx2.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
@@ -277,8 +277,8 @@ async def gen_qthumb(videoid, user_id):
                     ((1280 - text_w) / 2, 530),
                     f"{para[0]}",
                     fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
+                    stroke_width=4,
+                    stroke_fill="black",
                     font=font,
                 )
             if para[1]:
@@ -287,8 +287,8 @@ async def gen_qthumb(videoid, user_id):
                     ((1280 - text_w) / 2, 580),
                     f"{para[1]}",
                     fill="white",
-                    stroke_width=1,
-                    stroke_fill="white",
+                    stroke_width=4,
+                    stroke_fill="black",
                     font=font,
                 )
         except:
