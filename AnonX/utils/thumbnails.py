@@ -1,6 +1,7 @@
 import os
 import re
 import textwrap
+import random
 
 import aiofiles
 import aiohttp
@@ -11,7 +12,7 @@ from youtubesearchpython.__future__ import VideosSearch
 
 from config import YOUTUBE_IMG_URL
 from AnonX import app
-
+from AnonX.assets import boobs
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -35,6 +36,7 @@ async def gen_thumb(videoid, user_id):
     if os.path.isfile(f"cache/{videoid}_{user_id}.png"):
         return f"cache/{videoid}_{user_id}.png"
     url = f"https://www.youtube.com/watch?v={videoid}"
+    press = random.choice(boobs)
     try:
         results = VideosSearch(url, limit=1)
         for result in (await results.next())["result"]:
@@ -82,7 +84,7 @@ async def gen_thumb(videoid, user_id):
         x = f.resize((107, 107))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"AnonX/assets/anonx.png")
+        bg = Image.open(f"AnonX/assets/{press}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
@@ -175,6 +177,7 @@ async def gen_qthumb(videoid, user_id):
     if os.path.isfile(f"cache/que{videoid}_{user_id}.png"):
         return f"cache/que{videoid}_{user_id}.png"
     url = f"https://www.youtube.com/watch?v={videoid}"
+    demv = random.choice(boobs)
     try:
         results = VideosSearch(url, limit=1)
         for result in (await results.next())["result"]:
@@ -222,7 +225,7 @@ async def gen_qthumb(videoid, user_id):
         x = f.resize((107, 107))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"AnonX/assets/anonx2.png")
+        bg = Image.open(f"AnonX/assets/{demv}.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
